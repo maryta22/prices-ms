@@ -1,0 +1,54 @@
+# Entorno virtual
+venv/
+ENV/
+env/
+.venv/
+
+# Archivos de configuración de entorno
+.env
+.env.*
+
+# Archivos de bases de datos SQLite
+*.sqlite3
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de logs
+*.log
+
+# Configuración de editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de migración temporales
+*.bak
+*.swp
+
+# Archivos de salida
+*.pot
+*.pyc
+
+# Archivos de prueba
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# Node
+node_modules/
+
+# Docker
+*.pid
+*.pid.lock
+*.tar
+docker-compose.override.yml

@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "2da05284-9a66-4d66-968c-d24f2e0c122e",
+		"name": "Prices-MS API",
+		"description": "Colección de endpoints para el proyecto Prices-MS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17744142"
+	},
+	"item": [
+		{
+			"name": "Listar productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear producto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Producto de ejemplo\",\n  \"description\": \"Descripción del producto\"\n}"
+				},
+				"url": "{{base_url}}/api/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar tiendas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/stores"
+			},
+			"response": []
+		},
+		{
+			"name": "Productos por tienda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/stores-products"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar precios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/prices"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener el precio final de un producto en una tienda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/final-price?product_id=1&store_id=1&datetime=2025-05-05T12:00:00",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"final-price"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "1"
+						},
+						{
+							"key": "store_id",
+							"value": "1"
+						},
+						{
+							"key": "datetime",
+							"value": "2025-05-05T12:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar promociones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/api/promotions"
+			},
+			"response": []
+		},
+		{
+			"name": "Asociar una promoción a una lista de productos y tiendas",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"product_ids\": [1, 3],\n  \"store_ids\": [1, 2]\n}"
+				},
+				"url": "{{base_url}}/api/promotions/1/assign"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear precio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"product\": 1,\n  \"store\": 1,\n  \"value\": 100.50,\n  \"start_datetime\": \"2025-05-05T00:00:00Z\",\n  \"end_datetime\": \"2025-05-10T00:00:00Z\"\n}"
+				},
+				"url": "{{base_url}}/api/prices"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear promoción",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Promoción de verano\",\n  \"discount_percent\": 15.5,\n  \"start_datetime\": \"2025-06-01T00:00:00Z\",\n  \"end_datetime\": \"2025-06-30T23:59:59Z\"\n}"
+				},
+				"url": "{{base_url}}/api/promotions"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000"
+		}
+	]
+}
